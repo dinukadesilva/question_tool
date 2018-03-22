@@ -1,10 +1,64 @@
 <template name="question_div">
+
+    <div class="col s12 m4 l3">
+        <div class="card">
+            <div class="card-content">
+                    <span class="card-title activator grey-text text-darken-4">
+
+                        <a class="right red-text white">
+                            <i class="material-icons ">favorite</i>
+                        </a>
+                        {{{text}}}
+                    </span>
+                <p>
+                    <strong>
+                        {{#if poster}}
+                            <span class="poser">
+                                {{#if email}}
+                                    <a href="mailto:{{email}}">{{poster}}</a>
+                                {{else}}
+                                    {{poster}}
+                                {{/if}}
+                            </span>
+                        {{/if}}
+                    </strong> posted <span class="smallcaps" title="{{date_format timeorder}}">{{time_format timeorder}}</span>
+                </p>
+                <a class="btn-floating green right">
+                    <i class="large material-icons">thumb_up</i>
+                </a>
+            </div>
+            <div class="card-reveal">
+                <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i>{{{text}}}</span>
+                <p>-- mode details here --</p>
+                <p>
+                    <strong>
+                        {{#if poster}}
+                            <span class="poser">
+                                {{#if email}}
+                                    <a href="mailto:{{email}}">{{poster}}</a>
+                                {{else}}
+                                    {{poster}}
+                                {{/if}}
+                            </span>
+                        {{/if}}
+                    </strong> posted <span class="smallcaps" title="{{date_format timeorder}}">{{time_format timeorder}}</span>
+                </p>
+            </div>
+            <div class="card-action">
+                <a><strong>({{replyCount}})</strong> Replies</a>
+                <a><strong>({{voteCount}} / {{answersCount}})</strong> Votes</a>
+            </div>
+        </div>
+    </div>
+
+
+<!--
   <div class="question-wrapper">
     <div id="{{_id}}" class="question question-{{instanceid}} {{#if popular}}popular-question{{else}}{{age_marker}}{{/if}} {{#if isDisabled}}hidden-question{{/if}}">
       <p class="questiontext">{{{text}}}</p>
-      <!-- {{# if hasAnswers}}
+      &lt;!&ndash; {{# if hasAnswers}}
         {{> answers_list}}
-      {{/if}} -->
+      {{/if}} &ndash;&gt;
       {{#if hasAnswers}}
       <p class="hiddenMessage showreplies link" id="{{_id}}">show {{answersCount}}</p>
       {{/if}}
@@ -71,5 +125,5 @@
         posted <span class="smallcaps" title="{{date_format timeorder}}">{{time_format timeorder}}</span>
       </div>
     </div>
-  </div>
+  </div>-->
 </template>

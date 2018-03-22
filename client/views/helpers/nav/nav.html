@@ -1,4 +1,19 @@
 <template name="nav">
+
+    <div class="row red" style="display: flex;flex-direction: row;padding: 10px;margin: 0px">
+        <a href="#" class="white-text" style="flex: 1;text-decoration: underline;">
+            <h1 style="margin: 0px;font-size: 52px;">#{{this.title}}</h1>
+        </a>
+        <a class="waves-effect waves-light btn-flat right" style="padding: 10px;">
+            <i class="material-icons white-text" style="font-size: 32px;">menu</i>
+        </a>
+    </div>
+
+</template>
+
+
+<!--
+<template name="nav">
   <div id="nav-wrapper">
     <div class="mobiletitle hidden-md hidden-lg">
       <h1 class="hidden-md hidden-lg">{{this.title}}</h1>
@@ -38,7 +53,7 @@
     				<li><a id="navAsk" class="link" data-toggle-text="Close" title="Post a question">+<i class="fa fa-question"></i></a></li>
     				<li><a id="navPresent" class="link hidden-sm hidden-xs" title="Present">&nbsp;</a></li>
     			{{else}}
-    				<!--li><a id="navCreate" class="link" data-toggle-text="Close">+ Create</a></li-->
+    				&lt;!&ndash;li><a id="navCreate" class="link" data-toggle-text="Close">+ Create</a></li&ndash;&gt;
     			{{/if}}
           <li><a id="navLogin" class="link">Sign in</a></li>
     			<li><a id="navRegister" class="link">Sign up</a></li>
@@ -51,3 +66,4 @@
     </div>
   </div>
 </template>
+-->
