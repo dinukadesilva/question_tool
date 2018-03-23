@@ -1,4 +1,14 @@
 /* eslint-disable func-names, no-unused-vars */
+
+Template.nav.onRendered(function () {
+  Meteor.defer(function () {
+    $(document).ready(function () {
+      $(".button-collapse").sideNav();
+    })
+  });
+
+});
+
 Template.nav.events({
   'click #navLogout': function (event, template) {
     Meteor.logout();

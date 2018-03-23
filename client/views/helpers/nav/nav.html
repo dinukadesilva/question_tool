@@ -4,10 +4,24 @@
         <a href="#" class="white-text" style="flex: 1;text-decoration: underline;">
             <h1 style="margin: 0px;font-size: 52px;">#{{this.title}}</h1>
         </a>
-        <a class="waves-effect waves-light btn-flat right" style="padding: 10px;">
-            <i class="material-icons white-text" style="font-size: 32px;">menu</i>
-        </a>
+        <ul id="slide-out" class="side-nav">
+            <li>
+                <div class="user-view">
+                    <img style="width: 100%" src="http://www.creategoodconference.com/wp-content/uploads/2018/01/berkman-klien-logo.png">
+                </div>
+            </li>
+            <li><a href="#!">Login</a></li>
+            <li><a href="#!">About</a></li>
+            <li><a href="#!">Team</a></li>
+            <li><a href="#!">Contribute</a></li>
+        </ul>
+        <a href="#" data-activates="slide-out" class="button-collapse white-text" style="padding: 10px;"><i class="material-icons"
+                                                                                                 style="font-size: 32px;">menu</i></a>
+
     </div>
+
+
+
 
 </template>
 
@@ -21,7 +35,8 @@
           <a class="mobileprofile" id="navProfile hidden-md hidden-lg">Hi, {{currentUser.profile.name}}!</a>
       {{/if}}
     </div>
-  	<div id="nav" class="{{#if this.list}}{{#if currentUser}}loggedinlistbanner{{else}}loggedoutlistbanner{{/if}}{{else}}homebanner{{/if}}">
+  	<div id="nav" class="{{#if this.list}}{{#if
+        currentUser}}loggedinlistbanner{{else}}loggedoutlistbanner{{/if}}{{else}}homebanner{{/if}}">
   		<h1 id="tablename" class="hidden-xs hidden-sm">
   			{{this.title}}
   		</h1>
@@ -30,7 +45,7 @@
           {{#if currentUser}}
             <li class="no-bg hidden-xs hidden-sm"><a id="navProfile">Hi, {{currentUser.profile.name}}!</a></li>
           {{/if}}
-    			{{#if this.list}}
+    {{#if this.list}}
             <li><a id="navHome" class="link" title="Home"><i class="fa fa-home"></i></a></li>
     				<li><a id="navShare" class="link" title="Share"><i class="fa fa-share-alt-square"></i></a></li>
     			{{/if}}
@@ -38,8 +53,8 @@
         <div>
         <ul id="navoptions">
     		{{#if currentUser}}
-    			{{#if this.list}}
-            {{#if admin}}
+    {{#if this.list}}
+        {{#if admin}}
               <li><a id="navAdmin" class="link"><i class="fa fa-cog"></i> Admin</a></li>
             {{/if}}
     				<li><a id="navAsk" class="link" data-toggle-text="Close" title="Post a question">+<i class="fa fa-question"></i></a></li>
@@ -49,7 +64,7 @@
     			{{/if}}
     			<li><a id="navLogout" class="link" title="Log out"><i class="fa fa-sign-out"></i></a></li>
     		{{else}}
-    			{{#if this.list}}
+    {{#if this.list}}
     				<li><a id="navAsk" class="link" data-toggle-text="Close" title="Post a question">+<i class="fa fa-question"></i></a></li>
     				<li><a id="navPresent" class="link hidden-sm hidden-xs" title="Present">&nbsp;</a></li>
     			{{else}}
