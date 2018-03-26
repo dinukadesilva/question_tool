@@ -21,14 +21,20 @@
                                 {{/if}}
                             </span>
                         {{/if}}
-                    </strong> posted <span class="smallcaps" title="{{date_format timeorder}}">{{time_format timeorder}}</span>
+                    </strong> posted <span class="smallcaps" title="{{date_format timeorder}}">{{time_format
+                        timeorder}}</span>
                 </p>
                 <a class="btn-floating green right">
                     <i class="large material-icons">thumb_up</i>
                 </a>
+                <a class="btn-floating green-text right"
+                   style="background: transparent;box-shadow: none;width: initial;padding: 0px 10px;font-size: 25px;border-radius: 5px;background: white;box-shadow: -1px 0px 1px 1px #8bc34a36;margin-right: 5px;">
+                    234
+                </a>
             </div>
             <div class="card-reveal">
-                <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i>{{{text}}}</span>
+                <span class="card-title grey-text text-darken-4"><i
+                        class="material-icons right">close</i>{{{text}}}</span>
                 <p>-- mode details here --</p>
                 <p>
                     <strong>
@@ -41,24 +47,91 @@
                                 {{/if}}
                             </span>
                         {{/if}}
-                    </strong> posted <span class="smallcaps" title="{{date_format timeorder}}">{{time_format timeorder}}</span>
+                    </strong> posted <span class="smallcaps" title="{{date_format timeorder}}">{{time_format
+                        timeorder}}</span>
                 </p>
             </div>
             <div class="card-action">
-                <a><strong>({{replyCount}})</strong> Replies</a>
-                <a><strong>({{voteCount}})</strong> Votes</a>
+
+                <div id="slide-out-{{_id}}" class="side-nav"
+                     style="display: flex; flex-direction: column;max-width: 90%;width: 500px;">
+                    <div class="col s12" style="padding: 10px;background: #F44336;color: white;">
+                        <p style="font-size: 25px; margin: 0px">
+                            {{{text}}}
+                        </p>
+                        <p style="margin: 0px">
+                            <strong>
+                                {{#if poster}}
+                                    <span class="poser">
+                                        {{#if email}}
+                                            <a href="mailto:{{email}}">{{poster}}</a>
+                                        {{else}}
+                                            {{poster}}
+                                        {{/if}}
+                                    </span>
+                                {{/if}}
+                            </strong> posted <span class="smallcaps" title="{{date_format timeorder}}">{{time_format
+                                timeorder}}</span>
+                        </p>
+                    </div>
+
+                    <ul class="collection" style="flex: 1; overflow: auto; margin: 0px">
+                        <li class="collection-item avatar">
+                            <img src="https://pbs.twimg.com/profile_images/744645504533934080/tLbO78Iu_400x400.jpg"
+                                 alt="" class="circle">
+                            <span class="title">Dinuka De Silva</span>
+                            <p>
+                                I have no idea
+                            </p>
+                        </li>
+                        <li class="collection-item avatar">
+                            <img src="http://www.personalbrandingblog.com/wp-content/uploads/2017/08/blank-profile-picture-973460_640-300x300.png"
+                                 alt="" class="circle">
+                            <span class="title">Anonymous</span>
+                            <p>I don't understand this question. Any more explanations please
+                            </p>
+                        </li>
+                        <li class="collection-item avatar">
+                            <img src="http://www.personalbrandingblog.com/wp-content/uploads/2017/08/blank-profile-picture-973460_640-300x300.png"
+                                 alt="" class="circle">
+                            <span class="title">Anonymous</span>
+                            <p>
+                                Errrrrrrrr
+                            </p>
+                        </li>
+                        <li class="collection-item avatar">
+                            <img src="https://pbs.twimg.com/profile_images/744645504533934080/tLbO78Iu_400x400.jpg"
+                                 alt="" class="circle">
+                            <span class="title">Dinuka De Silva</span>
+                            <p>Whatt? ? ?
+                            </p>
+                        </li>
+                    </ul>
+
+                    <div class="input-field col s12">
+                        <textarea id="icon_prefix2" style="height: 70px; border: 2px solid #c1c1c1;"></textarea>
+                        <i class="material-icons prefix">comment</i>
+                    </div>
+
+                </div>
+
+                <a class="waves-effect waves-light btn-flat button-collapse button-collapse-answers-list"
+                   data-activates="slide-out-{{_id}}"><i
+                        class="material-icons left">comment</i>Answers
+                    ({{replyCount}})</a>
             </div>
         </div>
     </div>
 
 
-<!--
+    <!--
   <div class="question-wrapper">
-    <div id="{{_id}}" class="question question-{{instanceid}} {{#if popular}}popular-question{{else}}{{age_marker}}{{/if}} {{#if isDisabled}}hidden-question{{/if}}">
+    <div id="{{_id}}" class="question question-{{instanceid}} {{#if
+            popular}}popular-question{{else}}{{age_marker}}{{/if}} {{#if isDisabled}}hidden-question{{/if}}">
       <p class="questiontext">{{{text}}}</p>
       &lt;!&ndash; {{# if hasAnswers}}
         {{> answers_list}}
-      {{/if}} &ndash;&gt;
+    {{/if}} &ndash;&gt;
       {{#if hasAnswers}}
       <p class="hiddenMessage showreplies link" id="{{_id}}">show {{answersCount}}</p>
       {{/if}}
@@ -90,22 +163,22 @@
             Modify
           </span>
           {{ else }}
-            {{#if isPoster}}
+        {{#if isPoster}}
             <span class="adminquestionmodify link" id="{{_id}}">
               Modify
             </span>
             {{/if}}
-          {{/if}}
+    {{/if}}
         </span>
         <span class="sharing">
           {{#if popular}}
           <span class="image-icon popular-icon" title="Popular"></span>
           {{else}}
-            {{#if stale}}
+        {{#if stale}}
               <span class="image-icon stale-icon" title="Stale"></span>
             {{/if}}
-          {{/if}}
-          {{#if new}}
+    {{/if}}
+        {{#if new}}
             <span class="image-icon new-icon" title="New"></span>
           {{/if}}
           <span class="image-icon facebookbutton link" title="Share on Facebook"></span>
@@ -118,8 +191,8 @@
           {{#if email}}
             <a href="mailto:{{email}}">{{poster}}</a>
           {{else}}
-            {{poster}}
-          {{/if}}
+        {{poster}}
+    {{/if}}
         </span>
         {{/if}}
         posted <span class="smallcaps" title="{{date_format timeorder}}">{{time_format timeorder}}</span>
